@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+	<head>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Space X Landingsinformatie</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+
+
+	</head>
+	<body>
+		<img src="images/spacex.png" id="logo" alt="Logo SpaceX">
+			<form id="zoeken">
+					<input type="text" name="Landsingsplaats" id="Landsingsplaats" placeholder="Voer gewenste locatie in" />
+					<button type="submit"><i class="fa fa-search" id="zoek"></i></button>
+			</form>
+	
+		<div class="container">
+
+			<div id="locatie">
+				<img src="images/locatie.png" alt="locatie">
+				<p>Locatie</p>
+				<div id="plaatsnaam">-</div>
+			</div>
+
+			<div id="windkracht">
+				<img src="images/wind.png" alt="wind">
+				<p>Windkracht</p>
+				<div id="snelheid">-</div>
+			</div>
+
+			<div id="bewolking">
+				<img src="images/bewolking.png" alt="bewolking">
+				<p>Bewolking</p>
+				<div id="wolken">-</div>
+			</div>
+
+			
+			<div id="temperatuur">
+				<img src="images/temperatuur.png" alt="temperatuur">
+				<p>Temperatuur</p>
+				<div id="graden">-</div>
+			</div>
+
+			<div id="advies">
+				<img id="changeveiligheid" src="images/veiligheid.png" alt="veiligheid">
+				<p>Advies</p>
+				<div id="veiligheid">-</div>
+			</div>
+			<div id="uitleg">
+				<img src="images/wereldmap.png" alt="uitleg">
+				<p>Google maps</p>
+				<p id="mapuitleg">Bekijk de plaats waar u wilt landen</p>
+				<div id="wereldmap">-</div>
+			</div>
+			<div id="map"></div>
+		</div>
+
+			
+<!--------- script voor de gepinde map van google, het kan soms even duren voordat hij geladen is.------- -->
+		 <script>
+				function initMap() {
+ 				 var uluru = {lat: -25.344, lng: 131.036};
+  				// op google maps wordt uluru gepint.
+  				var map = new google.maps.Map(
+      			document.getElementById('map'), {zoom: 4, center: uluru});
+  				// hier wordt de pin vastgemaakt
+ 				 var marker = new google.maps.Marker({position: uluru, map: map});
+				}
+    	</script>
+
+<!-- Het script waar mijn API key aan is toegevoegd  -->
+		<script async defer src="https://maps.googleapis.com/maps/api/js?AIzaSyC3T5eH8OzLtXyShq2zkf50LC5cCV8WHD0=YOUR_API_KEY&callback=initMap">
+		</script>
+
+	</body>
+
+</html>
